@@ -1,13 +1,13 @@
 class Animal < ActiveRecord::Base
 
 end
-class Cat < animal
+class Cat < Animal
 
 end
-class Dog < animal
+class Dog < Animal
      
 end
 
-class Kity < animal
+class Kitty < Cat
 
 end
