@@ -6,7 +6,7 @@ class InitTable < ActiveRecord::Migration
     create_table :profiles do |t|
       t.integer :user_id ,:null => false
     end
-    add_index :profiles , [:user_id] , :unique => true //一個user 一個id
+    add_index :profiles , [:user_id] , :unique => true #一個user 一個id
 
     create_table :items do |t|
       t.integer :user_id ,:null => false

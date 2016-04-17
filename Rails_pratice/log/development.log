@@ -602,3 +602,115 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'users'
 [0m
   [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (10.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (12.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160416092915)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to InitTable (20160416092915)
+  [1m[35m (8.6ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE `profiles` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (7.8ms)[0m  CREATE UNIQUE INDEX `index_profiles_on_user_id`  ON `profiles` (`user_id`) 
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE `items` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11) NOT NULL, `title` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (7.6ms)[0m  CREATE TABLE `book_owners` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `book_id` int(11), `level` int(11)) ENGINE=InnoDB
+  [1m[36m (8.2ms)[0m  [1mCREATE TABLE `books` (`id` int(11) auto_increment PRIMARY KEY, `owner_type` varchar(255), `owner_id` int(11), `title` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE `animals` (`id` int(11) auto_increment PRIMARY KEY, `type` varchar(255), `name` varchar(255)) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20160416092915')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'Rails_pratice_development'
+  AND fk.table_name = 'animals'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `animals`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'Rails_pratice_development'
+  AND fk.table_name = 'book_owners'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `book_owners`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'Rails_pratice_development'
+  AND fk.table_name = 'books'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `books`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'Rails_pratice_development'
+  AND fk.table_name = 'items'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `items`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'Rails_pratice_development'
+  AND fk.table_name = 'profiles'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `profiles`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'Rails_pratice_development'
+  AND fk.table_name = 'users'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `users`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `books`[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`name`) VALUES ('hello kitty')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (name ='hello kitty')
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`name` = 'hello kitty' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`name` = 'hello kitty1' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`name`) VALUES ('hello kitty')[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 0 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 0 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`name` = 'hello kitty' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`name`) VALUES ('hello kitty')[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `profiles` (`user_id`) VALUES (3)
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mProfile Load (0.3ms)[0m  SELECT  `profiles`.* FROM `profiles`  ORDER BY `profiles`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `books` (`owner_id`, `owner_type`, `title`) VALUES (3, 'User', 'hihi')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `books` (`owner_id`, `owner_type`, `title`) VALUES (3, 'User', 'hihi')[0m
+  [1m[35m (0.6ms)[0m  COMMIT
