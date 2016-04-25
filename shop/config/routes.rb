@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :managers
+  devise_for :users
   resource :statics , :only => [:index] #首頁  statics/index
   root "statics#index"
 

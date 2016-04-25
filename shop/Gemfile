@@ -28,7 +28,7 @@ gem 'devise'         #註冊登入系統
 gem 'paperclip'      #檔案上傳系統
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+#gem 'active_record'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
