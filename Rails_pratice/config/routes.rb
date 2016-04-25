@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  #get '/yooo/:id/:type' , :to => 'static#index'
+  #match '/hooo' ,:to => 'static#test' ,:via => [:post,:delete]
+  get '/yoo/123' , :to => "items#yoo"
+  get 'yoo/234'  , :to => "items#hoo"
+  #resources :items
+  #root 'items#index' #根目錄
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

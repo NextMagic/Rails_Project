@@ -7,16 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Applicaiton Layout</h1>
+  <h1>Dashboard Layout</h1>
 
 <%= yield :head %>
 
 <hr/>
 
-<%= yield %>
+<% yield %>
 
 <hr/>
-<%=yield :footer %>
+<%=yield :footer>
 
 </body>
 </html>
